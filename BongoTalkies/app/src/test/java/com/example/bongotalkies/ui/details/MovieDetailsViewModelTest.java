@@ -58,7 +58,32 @@ public class MovieDetailsViewModelTest {
         );
     }
 
+    //EXPECTED - PASSED
     @Test
-    public void getRating() {
+    public void testGetRating() {
+        float actual = movieDetailsViewModel.getRating(Constants.TEST_INPUT);
+        assertEquals(Constants.EXPECTED, actual,Constants.DELTA);
+    }
+
+
+    //EXPECTED - PASSED
+    @Test
+    public void testEqualRatingBYLowerBoundaryCase() {
+        float actual = movieDetailsViewModel.getRating(Constants.TEST_INPUT);
+        assertEquals(Constants.NEAR_EQUAL_BOUNDARY_VALUE, actual,Constants.DELTA);
+    }
+
+    //EXPECTED - FAILED
+    @Test
+    public void testGetRatingBYLowerBoundaryCase() {
+        float actual = movieDetailsViewModel.getRating(Constants.TEST_INPUT);
+        assertEquals(Constants.LOWER_BOUNDARY_VALUE, actual,Constants.DELTA);
+    }
+
+    //EXPECTED - FAILED
+    @Test
+    public void testGetRatingBYHowerBoundaryCase() {
+        float actual = movieDetailsViewModel.getRating(Constants.TEST_INPUT);
+        assertEquals(Constants.HIGHER_BOUNDARY_VALUE, actual,Constants.DELTA);
     }
 }
