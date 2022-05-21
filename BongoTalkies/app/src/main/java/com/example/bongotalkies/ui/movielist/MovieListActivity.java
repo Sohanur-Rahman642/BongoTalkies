@@ -43,11 +43,12 @@ public class MovieListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_list);
 
         binding = ActivityMovieListBinding.inflate(getLayoutInflater());
 
         setContentView(binding.getRoot());
+
+        setSupportActionBar(binding.toolbar);
 
         connectivityUtils = ConnectivityUtils.getInstance(MovieListActivity.this);
 
