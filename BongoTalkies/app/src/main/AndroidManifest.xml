@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BongoTalkies">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.movielist.MovieListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

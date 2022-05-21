@@ -1,10 +1,12 @@
-package com.example.bongotalkies;
+package com.example.bongotalkies.ui.movielist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.bongotalkies.R;
+
+public class MovieListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
