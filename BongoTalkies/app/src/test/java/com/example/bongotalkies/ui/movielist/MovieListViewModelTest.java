@@ -1,6 +1,8 @@
 package com.example.bongotalkies.ui.movielist;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.lifecycle.MutableLiveData;
@@ -51,5 +53,18 @@ public class MovieListViewModelTest extends TestCase {
     }
 
     public void testGetListOfMovies() {
+
+        when(movieListRepository.getListOfMovies(
+                Constants.API_KEY,
+                Constants.LANGUAGE,
+                1
+        )).thenReturn(mutableLiveData);
+
+
+        assertEquals(mutableLiveData, movieListRepository.getListOfMovies(
+                Constants.API_KEY,
+                Constants.LANGUAGE,
+                1
+        ));
     }
 }
