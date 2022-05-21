@@ -1,6 +1,7 @@
 package com.example.bongotalkies.ui.movielist;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -52,6 +53,17 @@ public class MovieListViewModelTest extends TestCase {
         );
     }
 
+    //Expected Result = Failed
+    @Test
+    public void testCallMultipleGetListOfMovies() {
+        movieListViewModel.getListOfMovies(1);
+        verify(movieListRepository, times(3)).getListOfMovies(
+                Constants.API_KEY,
+                Constants.LANGUAGE,
+                1
+        );
+    }
+
     public void testGetListOfMovies() {
 
         when(movieListRepository.getListOfMovies(
@@ -67,4 +79,6 @@ public class MovieListViewModelTest extends TestCase {
                 1
         ));
     }
+
+
 }
