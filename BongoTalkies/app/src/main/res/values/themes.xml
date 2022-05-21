@@ -19,9 +19,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.TestMVVM.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.BongoTalkies.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.TestMVVM.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.BongoTalkies.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
     <style name="TitleText">

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -56,6 +57,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
                     if(movieModel != null){
                         Log.e(TAG, "observeMovieDetailsFetchTask: movieModel " +movieModel.toString());
                         binding.setMoviemodel(movieModel);
+
+                        binding.detailSpinLayout.setVisibility(View.GONE);
+
+                        binding.mainDetailLayout.setVisibility(View.VISIBLE);
 
                         binding.ratingBar.setRating(movieDetailsViewModel.getRating(movieModel.getVoteAverage()));
 
