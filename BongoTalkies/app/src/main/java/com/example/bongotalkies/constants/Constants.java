@@ -8,4 +8,5 @@ public class Constants {
 
     public static final String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/original/";
 
+    public static final String LANGUAGE = "en-US";
 }
