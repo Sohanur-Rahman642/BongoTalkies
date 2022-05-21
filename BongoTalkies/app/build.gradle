@@ -7,6 +7,10 @@ plugins {
 android {
     compileSdk 32
 
+    dataBinding{
+        enabled=true
+    }
+
     defaultConfig {
         applicationId "com.example.bongotalkies"
         minSdk 21
@@ -26,6 +30,20 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    // other configuration (buildTypes, defaultConfig, etc.)
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
