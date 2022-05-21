@@ -12,14 +12,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/darkBlue"
+
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/detail_spin_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="55dp"
             android:background="@color/darkBlue"
             android:visibility="visible"
             >
@@ -46,7 +45,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
-            android:background="@color/darkBlue"
             android:visibility="gone"
             >
 

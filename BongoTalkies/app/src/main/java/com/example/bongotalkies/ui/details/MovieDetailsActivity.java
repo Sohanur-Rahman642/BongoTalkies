@@ -16,6 +16,12 @@ import com.example.bongotalkies.R;
 import com.example.bongotalkies.constants.Constants;
 import com.example.bongotalkies.databinding.ActivityMovieDetailsBinding;
 import com.example.bongotalkies.repo.MovieDetailsRepository;
+import com.example.bongotalkies.utils.ConnectivityUtils;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
@@ -25,6 +31,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     private MovieDetailsRepository movieDetailsRepository;
     private MovieDetailsViewModel movieDetailsViewModel;
+
+    private ScheduledExecutorService scheduler;
+
+    private ConnectivityUtils connectivityUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +55,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
         MovieDetailsViewModel.Factory factory = new MovieDetailsViewModel.Factory(movieDetailsRepository);
         movieDetailsViewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) factory)
                 .get(MovieDetailsViewModel.class);
+
+        scheduler = Executors.newSingleThreadScheduledExecutor();
+        scheduler.scheduleAtFixedRate
+                (new Runnable() {
+                    public void run() {
+                        showNetworkState();
+                    }
+                }, 5, 30, TimeUnit.SECONDS);
 
         observeMovieDetailsFetchTask();
     }
@@ -86,5 +104,32 @@ public class MovieDetailsActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void showNetworkState() {
+        if(!connectivityUtils.isOnline()){
+            Snackbar.make(binding.getRoot(), R.string.error_network_fail,
+                    Snackbar.LENGTH_LONG)
+                    .show();
+        }
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (scheduler != null && !scheduler.isShutdown()) {
+            scheduler.shutdown();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (scheduler != null && !scheduler.isShutdown()) {
+            scheduler.shutdown();
+        }
+    }
+
+
 
 }
