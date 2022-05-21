@@ -26,7 +26,12 @@ public class MovieListRepository {
         apiInterface.getListOfMovies(apiKey, language, page).enqueue(new Callback<MovieListResponse>() {
             @Override
             public void onResponse(Call<MovieListResponse> call, Response<MovieListResponse> response) {
-                mutableLiveData.setValue(response.body().getResults());
+                if(response.code() == 200 && response.isSuccessful()){
+                    mutableLiveData.setValue(response.body().getResults());
+                }else{
+                    mutableLiveData.setValue(null);
+                }
+
             }
 
             @Override
