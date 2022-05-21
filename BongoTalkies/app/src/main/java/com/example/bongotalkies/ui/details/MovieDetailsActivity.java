@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.bongotalkies.R;
 
-public class MovieDetails extends AppCompatActivity {
+public class MovieDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
