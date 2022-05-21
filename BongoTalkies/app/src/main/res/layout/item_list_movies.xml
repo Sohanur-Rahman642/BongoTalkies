@@ -5,6 +5,9 @@
             name="moviemodel"
             type="com.example.bongotalkies.model.MovieModel" />
 
+        <variable
+            name="movieItemClicked"
+            type="com.example.bongotalkies.ui.adapter.MovieListAdapter.MovieItemClickListener" />
     </data>
 
 
@@ -15,7 +18,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/corner"
         app:cardBackgroundColor="@color/white"
-
+        android:onClick="@{ () -> movieItemClicked.onMovieItemClicked(moviemodel) }"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
