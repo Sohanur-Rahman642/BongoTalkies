@@ -1,2 +1,2 @@
 # BongoTalkies
-<img src="images/loading.png" width="48">
+<img src="images/loading.png" width="200">
