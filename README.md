@@ -1,2 +1,2 @@
 # BongoTalkies
-![](images/loading.png)
+![](images/loading.png =250x250)
