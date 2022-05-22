@@ -63,11 +63,60 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="@dimen/size_4"
                 app:layout_constraintStart_toStartOf="@+id/textMovieName"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textMovieName"
                 android:text='@{moviemodel.originalLanguage != null ? moviemodel.originalLanguage : "Not found"}'
                 tools:text="En"
                 android:textSize="@dimen/size_12"
+                />
+
+            <TextView
+                android:id="@+id/divider"
+                style="@style/Caption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:gravity="start|center_vertical"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/size_4"
+                app:layout_constraintTop_toBottomOf="@+id/textMovieName"
+                app:layout_constraintStart_toEndOf="@+id/textLanguage"
+                android:text="|"
+                tools:text="|"
+                android:textSize="@dimen/size_12"
+                android:layout_marginStart="5dp"
+                />
+
+            <TextView
+                android:id="@+id/textPopularityScore"
+                style="@style/Caption"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:gravity="start|center_vertical"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="@dimen/size_4"
+                app:layout_constraintTop_toBottomOf="@+id/textMovieName"
+                app:layout_constraintStart_toEndOf="@+id/divider"
+                android:text='@{ String.valueOf(moviemodel.popularity) + " popularity"}'
+                tools:text="33 % Popularity"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/size_12"
+                android:layout_marginStart="5dp"
+                />
+
+            <TextView
+                android:id="@+id/star"
+                style="@style/Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/size_4"
+                android:drawablePadding="@dimen/size_4"
+                app:drawableStartCompat="@drawable/ic_star"
+                app:layout_constraintStart_toStartOf="@+id/textLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/textLanguage"
                 />
 
             <TextView
@@ -77,9 +126,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/size_4"
-                android:drawablePadding="@dimen/size_4"
-                app:drawableStartCompat="@drawable/ic_star"
-                app:layout_constraintStart_toStartOf="@+id/textLanguage"
+                android:paddingTop="@dimen/size_4"
+                app:layout_constraintStart_toEndOf="@+id/star"
                 app:layout_constraintTop_toBottomOf="@+id/textLanguage"
                 android:text="@{Double.toString(moviemodel.voteAverage/2)}"
                 tools:text="9.2 (10.6 k)" />

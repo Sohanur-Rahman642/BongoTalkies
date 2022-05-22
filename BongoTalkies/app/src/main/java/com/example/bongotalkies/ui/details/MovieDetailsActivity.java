@@ -1,5 +1,7 @@
 package com.example.bongotalkies.ui.details;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.example.bongotalkies.R;
 import com.example.bongotalkies.constants.Constants;
 import com.example.bongotalkies.databinding.ActivityMovieDetailsBinding;
@@ -90,8 +93,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
 
     public void setPosterImage(Context context, String imageUrl, ImageView view){
+        DrawableCrossFadeFactory factory =
+                new DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build();
+
         Glide.with(context)
                 .load(Constants.BASE_IMAGE_URL+imageUrl)
+                .transition(withCrossFade(factory))
                 .into(view);
     }
 

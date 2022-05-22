@@ -28,17 +28,6 @@ public class BongoTalkies extends Application {
         return mInstance;
     }
 
-
-    public boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = null;
-        if (connectivityManager != null) {
-            activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        }
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
     public static Retrofit getRetrofitClient() {
 
         if (retrofit == null) {

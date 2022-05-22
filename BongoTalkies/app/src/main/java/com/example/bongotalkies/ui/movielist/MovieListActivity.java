@@ -66,7 +66,7 @@ public class MovieListActivity extends AppCompatActivity {
                     public void run() {
                         showNetworkState();
                     }
-                }, 5, 30, TimeUnit.SECONDS);
+                }, 5, 10, TimeUnit.SECONDS);
 
 
         observeMovieListFetchTask();
@@ -87,7 +87,7 @@ public class MovieListActivity extends AppCompatActivity {
                     page
             ).observe(this, movieModels -> {
                 if(movieModels != null){
-                    Log.e(TAG, "onChanged: movieModels " +movieModels);
+                   // Log.e(TAG, "onChanged: movieModels " +movieModels);
 
                     if(movieModels != null){
                         movieListAdapter = new MovieListAdapter(MovieListActivity.this, R.layout.item_list_movies, movieModels);
@@ -99,6 +99,7 @@ public class MovieListActivity extends AppCompatActivity {
                 }
             });
         }else {
+          //  Log.e(TAG, "observeMovieListFetchTask: offline" );
             binding.spinLayout.setVisibility(View.VISIBLE);
             binding.movieListGridView.setVisibility(View.GONE);
         }

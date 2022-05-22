@@ -1,14 +1,23 @@
 package com.example.bongotalkies.ui.adapter;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
 import com.example.bongotalkies.constants.Constants;
 import com.example.bongotalkies.databinding.MovieListBinding;
 import com.example.bongotalkies.model.MovieModel;
@@ -64,8 +73,12 @@ public class MovieListAdapter extends BaseAdapter {
             movieListBinding = (MovieListBinding) v.getTag();
         }
 
+        DrawableCrossFadeFactory factory =
+                new DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build();
+
         Glide.with(context)
                 .load(Constants.BASE_IMAGE_URL+movieModels.get(i).getPosterPath())
+                .transition(withCrossFade(factory))
                 .into(movieListBinding.imagePoster);
 
         movieListBinding.setMoviemodel(movieModels.get(i));
