@@ -1,1 +1,2 @@
 # BongoTalkies
+![](images/loading.png)
