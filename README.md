@@ -2,7 +2,7 @@
 ##### App UI Screens
 <img src="images/loading.png" width="200"> &emsp; &emsp; <img src="images/home.png" width="200"> &emsp; &emsp; <img src="images/details.png" width="200">
 
-#### As per the requirement I completed this project using MVVM (Model View Viewmodel) architechture with unit testing. 
+#### I completed this project using MVVM (Model View Viewmodel) architechture with unit testing. 
 ### Tools & libraries used in this project: 
 - Retrofit
 - Glide
